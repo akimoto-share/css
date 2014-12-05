@@ -1,0 +1,38 @@
+
+//http://lesscss.org/features/
+//http://www.bootcss.com/p/lesscss/
+<!-- -x压缩 -->
+lessc styles.less -x
+
+# compile bootstrap.less to bootstrap.css
+$ lessc bootstrap.less bootstrap.css
+
+# compile bootstrap.less to bootstrap.css and minify (compress) the result
+$ lessc -x bootstrap.less bootstrap.css
+
+Include paths
+
+lessc --include-path=PATH1;PATH2
+Use this to configure a list of paths which less will use to find imports in.
+
+
+.logo {
+    width: 300px;
+    &:hover { text-decoration: none }
+}
+
+.bordered {
+  &.float {
+    float: left; 
+  }
+  .top {
+    margin: 5px; 
+  }
+}
+会输出
+.bordered.float {
+  float: left;  
+}
+.bordered .top {
+  margin: 5px;
+}
