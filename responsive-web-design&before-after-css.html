@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			.container {			
+				border: 1px solid black;
+				height: 100px;
+				}
+			@media all and (max-width: 1000px) and (min-width: 600px){
+			section,
+			aside {
+				height: 100px;
+				margin: 4%; /*  10px ÷ 538px = .018587361 */
+
+			}
+			section {
+				float: left;
+				width: 60%;    /* 340px ÷ 538px = .63197026 */
+				border: 1px solid black;
+			}
+			aside {
+				float: right;
+				width: 20%;  /* 158px ÷ 538px = .293680297 */
+				border: 1px solid black;
+			}
+			}
+			@media all and (max-width: 500px) and (min-width: 200px) {
+				section, aside {
+					float: none;
+					width: auto;
+				}
+			}
+			p:after{ 
+				content:"台词：-";
+				background-color:yellow;
+				color:red;
+				font-weight:bold;
+			}
+			p:before{
+				content: "nothing";
+			}
+			p{
+				margin: 10px;
+			}
+			/*伪类*/
+			/*http://www.w3school.com.cn/css/css_pseudo_classes.asp*/
+			q:lang(no){
+			   quotes: "~" "~"
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<section>...</section>
+			<aside>...</aside>
+		</div>
+		<p>test</p>
+		<p>文字<q lang="no">段落中的引用的文字</q>文字</p>
+	</body>
+</html>

@@ -25,6 +25,9 @@ Use this to configure a list of paths which less will use to find imports in.
   &.float {
     float: left; 
   }
+  &:after{
+    content:"description here"
+  }
   .top {
     margin: 5px; 
   }
