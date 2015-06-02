@@ -1,0 +1,87 @@
+
+
+
+
+----------------css样式表的选择----------------
+
+首先要做的选择是使用哪一种样式表。当涉及到最佳习惯时，对不同样式表的分析如下：   
+
+
+Inline CSS；简单地说，你应该尽量避免使用。除了一些其他的缺点之外，使用Inline CSS意味着你并没有利用到CSS的真正优点，即你并没有将内容与格式分离开。
+
+Embedded CSS：它也不是最理想的，因为它只能对当前页面施加影响。在更新的过程中，如果某一个页面丢失，将会使站点的风格不一致；另外，当用户浏览你的站点时，每一页都要下载一次样式表信息。
+
+External CSS：这是你的第一选择。External CSS可以让所有连接到它的页面保持一致的外观风格；提纲挈领，更改一次，轻松更新所有相关页面；让你的页面体积更小，浏览速度更快。其他的一些最佳习 惯将在下文分析具体的CSS特性时提及。
+
+
+
+
+
+
+
+
+div高度自动适应
+
+如果一定要设置的话就用height:auto;外加个overflow:hidden;这样才能实现高度自适应
+
+overflow:hidden;
+display:block;//div不需要设置这个，div本身就是block
+height:auto;
+
+
+
+
+//上传组件
+//http://stackoverflow.com/questions/5813344/how-to-customize-input-type-file
+<div class="upload-file-container">
+    上传固件
+   <input id="file-logo" type="file" name="file" onchange="return uploadLogo();"/>
+</div>
+.upload-file-container {
+	@height:36px;
+	width: 120px;
+	height: @height;
+	line-height: @height;
+	position: relative;
+	overflow: hidden;
+	color: #fff;
+	font-size: 14px;
+	background-color: #ff6b49;
+	input {
+		position: absolute;
+		cursor: pointer;
+		left: 0;
+		right: 0;
+		font-size: 15px;
+		opacity: 0; 
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		border: none;
+		background-color: blue;
+	}
+}
+
+
+//在网页中设置copyright往往需要放在页面最下面，解决方案如下
+body->div
+此div中放置内容，div的最后一个元素是foot
+此div设置position: relative;overflow: hidden;使用js设置最小宽度$('.page').css('min-height', screen.height);
+最后一个元素设置如下：
+.foot {
+	background-color: #f4f4f4;
+	width: 100%;
+	border-top: 1px #ddd solid;
+	color: #999;
+	line-height: 50px;
+	text-align: center;
+	position: absolute;//important
+	bottom: 0;//important
+}
+
+
+display: inline-block;
+http://zh.learnlayout.com/inline-block.html
+inline vs block vs inline-block
+http://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block
